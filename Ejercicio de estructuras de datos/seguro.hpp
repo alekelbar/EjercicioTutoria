@@ -26,4 +26,19 @@ public:
 		cabeza = nuevoCliente;
 		cout << "Cliente creado exitosamente.\n";
 	}
+
+	void consultarCliente(int cedula) {
+		Cliente* actual = cabeza;
+		while (actual != nullptr) {
+			if (actual->cedula == cedula) {
+				cout << "Cedula: " << actual->cedula << "\nNombre: " << actual->nombreCompleto
+					<< "\nIngreso Neto: " << actual->ingresoNeto << "\nTipo de Seguro: " << actual->tipoSeguro
+					<< "\nNumero de Telefono: " << actual->numeroTelefono << "\nCorreo Electronico: " << actual->correoElectronico
+					<< "\nSaldo o Tarifa: " << actual->saldoTarifa << "\n";
+				return;
+			}
+			actual = actual->siguiente;
+		}
+		cout << "Cliente no encontrado.\n";
+	}
 };
