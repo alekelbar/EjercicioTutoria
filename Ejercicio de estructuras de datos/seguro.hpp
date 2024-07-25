@@ -59,4 +59,25 @@ public:
 		}
 		cout << "Cliente no encontrado.\n";
 	}
+
+	void eliminarCliente(int cedula) {
+		Cliente* actual = cabeza;
+		Cliente* anterior = nullptr;
+		while (actual != nullptr) {
+			if (actual->cedula == cedula) {
+				if (anterior == nullptr) {
+					cabeza = actual->siguiente;
+				}
+				else {
+					anterior->siguiente = actual->siguiente;
+				}
+				delete actual;
+				cout << "Cliente eliminado exitosamente.\n";
+				return;
+			}
+			anterior = actual;
+			actual = actual->siguiente;
+		}
+		cout << "Cliente no encontrado.\n";
+	}
 };
