@@ -41,4 +41,22 @@ public:
 		}
 		cout << "Cliente no encontrado.\n";
 	}
+
+	void actualizarCliente(int cedula, string nombreCompleto, double ingresoNeto, string tipoSeguro, string numeroTelefono, string correoElectronico) {
+		Cliente* actual = cabeza;
+		while (actual != nullptr) {
+			if (actual->cedula == cedula) {
+				actual->nombreCompleto = nombreCompleto;
+				actual->ingresoNeto = ingresoNeto;
+				actual->tipoSeguro = tipoSeguro;
+				actual->numeroTelefono = numeroTelefono;
+				actual->correoElectronico = correoElectronico;
+				actual->saldoTarifa = calcularTarifa(tipoSeguro);
+				cout << "Cliente actualizado exitosamente.\n";
+				return;
+			}
+			actual = actual->siguiente;
+		}
+		cout << "Cliente no encontrado.\n";
+	}
 };
